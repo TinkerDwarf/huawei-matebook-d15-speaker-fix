@@ -1,0 +1,13 @@
+[Unit]
+Description=Huawei MateBook BOD-WXX9 speaker amp jack-aware mute
+After=sound.target
+Wants=sound.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/huawei-speaker-mute.sh
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
