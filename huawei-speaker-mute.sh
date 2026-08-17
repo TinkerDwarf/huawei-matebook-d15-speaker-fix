@@ -44,7 +44,8 @@ set_amp() {
         kill "$CURRENT_PID" 2>/dev/null
         wait "$CURRENT_PID" 2>/dev/null
     fi
-    gpioset --mode=signal "$GPIOCHIP" "$LINE=$val" &
+    # Новый синтаксис для libgpiod v2.x
+    gpioset -c "$GPIOCHIP" "$LINE=$val" &
     CURRENT_PID=$!
     if [ "$val" = "1" ]; then
         reinit_amp
@@ -52,6 +53,7 @@ set_amp() {
 }
 
 read_jack() {
+    # Получаем статус подключения (on/off)
     amixer -c 0 cget "numid=$JACK_NUMID" 2>/dev/null \
         | sed -n 's/^[[:space:]]*: values=//p'
 }
