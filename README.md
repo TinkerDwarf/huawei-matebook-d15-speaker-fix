@@ -59,7 +59,7 @@ sudo apt install i2c-tools gpiod alsa-utils
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/huawei-matebook-d15-speaker-fix
+git clone https://github.com/TinkerDwarf/huawei-matebook-d15-speaker-fix
 cd huawei-matebook-d15-speaker-fix
 sudo bash install.sh
 ```
